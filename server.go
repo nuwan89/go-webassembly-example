@@ -8,9 +8,9 @@ import (
 func main() {
 	fs := http.FileServer(http.Dir("./"))
 	http.Handle("/", fs)
-
-	log.Println("Listening on http://localhost:3000/index.html")
-	err := http.ListenAndServe(":3002", nil)
+	port := ":3000"
+	log.Println("Listening on http://localhost", port, "/index.html")
+	err := http.ListenAndServe(port, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
